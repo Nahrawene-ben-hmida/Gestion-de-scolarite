@@ -1,0 +1,143 @@
+<div class="row">
+  <!-- conversion-section start -->
+
+  <div class="col-sm-12">
+    <app-card cardTitle="Choisire une session..." [options]="false">
+      <h5>Session</h5>
+      <div class="row">
+        <select name="session" class="custom-select" (change)="onChangeSession(session.value)" #session>
+          <option   *ngFor="let sess of sessions" value="{{sess.id}}">{{sess.anneeScolaire}}</option>
+        </select>
+      </div>
+
+
+    </app-card>
+  </div>
+
+
+
+  <div class="col-sm-12">
+    <div class="row no-gutters">
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Etudiants</span>
+          <h3>{{nbrEtudiantBySession?nbrEtudiantBySession:'NaN'}}</h3>
+          <app-apex-chart chartID="analytics-apex-user-chart" [chartConfig]="this.chartDB.userAACC"></app-apex-chart>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Enseignants</span>
+          <h3>{{nbrEnseignantsTotal?nbrEnseignantsTotal:'Nan'}}</h3>
+          <app-apex-chart chartID="analytics-apex-session-chart" [chartConfig]="this.chartDB.sessionAACC"></app-apex-chart>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Cadres Admins</span>
+          <h3>{{nbrCadresAdmins?nbrCadresAdmins:'NaN'}}</h3>
+          <app-apex-chart chartID="analytics-apex-page-view-chart" [chartConfig]="this.chartDB.pageViewAACC"></app-apex-chart>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Classes</span>
+          <h3>{{nbrClassesBySession?nbrClassesBySession:'NaN'}}</h3>
+          <app-apex-chart chartID="analytics-apex-page-session-chart" [chartConfig]="this.chartDB.pageSessionAACC"></app-apex-chart>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Sections</span>
+          <h3>{{nbrSections?nbrSections:'NaN'}}</h3>
+          <app-apex-chart chartID="analytics-apex-avg-session-chart" [chartConfig]="this.chartDB.avgSessionAACC"></app-apex-chart>
+        </app-card>
+      </div>
+      <div class="col-md-4 col-xl-2 col-sm-6">
+        <app-card [hidHeader]="true">
+          <span>Matieres</span>
+          <h3>{{nbrMatieres?nbrMatieres:'NaN'}}</h3>
+          <app-apex-chart chartID="analytics-apex-bounce-rate-chart" [chartConfig]="this.chartDB.bounceRateAACC"></app-apex-chart>
+        </app-card>
+      </div>
+    </div>
+  </div>
+  <!-- conversion-section end -->
+
+  <!-- account-section start -->
+  <!--<div class="col-xl-8">
+    <app-card cardTitle="Daily Visitor" [options]="false">
+      <app-apex-chart chartID="daily-visitor-aa-cc" [chartConfig]="this.chartDB.dailyVisitorAACC" [xAxis]="dailyVisitorAxis"></app-apex-chart>
+    </app-card>
+  </div>-->
+  <div class="col-xl-12">
+    <app-card [hidHeader]="true">
+      <div class="row">
+        <div class="col-auto">
+          <h6>Taux de reussite</h6>
+        </div>
+        <div class="col text-right">
+          <h2 class="mb-0">{{nbrEtudiantBySession?nbrEtudiantBySession:'NaN'}}</h2>
+        </div>
+      </div>
+      <div class="row mt-4">
+        <div class="col">
+          <h3 class="m-0"><i class="fas fa-circle text-success f-10 m-r-5"></i>{{tauxRessit}}%</h3>
+          <span class="ml-3">Reussit</span>
+        </div>
+        <div class="col">
+          <h3 class="m-0"><i class="fas fa-circle text-primary f-10 m-r-5"></i>{{tauxNonAffectee}}%</h3>
+          <span class="ml-3">Non Affectee</span>
+        </div>
+        <div class="col">
+          <h3 class="m-0"><i class="fas fa-circle text-danger f-10 m-r-5"></i>{{tauxRedoublance}}%</h3>
+          <span class="ml-3">Redoublant</span>
+        </div>
+      </div>
+      <div class="progressbar-stack mt-12">
+        <div *ngFor="let bar of deviceProgressBar" [ngStyle]="{width: bar.value + '%'}" class="float-left">
+          <ngb-progressbar [type]="bar.type" height="8px" [value]="100"></ngb-progressbar>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div *ngIf="chartTauxReussite" class="col-md-12">
+    <app-card  cardTitle="Taux Reussite par class" [options]="false">
+      <app-apex-chart chartID="bar-chart-2-cac"  [chartConfig]="chartTauxReussite"></app-apex-chart>
+    </app-card>
+  </div>
+  <!-- account-section end -->
+
+  <!-- customer overview start -->
+  <div class="col-md-12">
+    <app-card cardTitle="Taux de presence par Matiere" cardClass="table-card" blockClass="p-0">
+      <perfect-scrollbar [style.max-height]="'362px'">
+        <table class="table table-hover m-b-0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th><span>Etudiant</span></th>
+              <th *ngFor="let mat of matieres">
+                <span>{{mat.matiere}}
+                </span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let taux of tauxPresenceEtudiants">
+            <td>{{taux.id}}</td>
+            <td>{{taux.nom}}</td>
+            <td *ngFor="let presence of taux.absence">
+              {{presence}}%
+              <div class="mt-1">
+                <ngb-progressbar type="success" height="4px" [value]="presence"></ngb-progressbar>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </perfect-scrollbar>
+    </app-card>
+  </div>
+  <!-- customer overview start -->
+</div>

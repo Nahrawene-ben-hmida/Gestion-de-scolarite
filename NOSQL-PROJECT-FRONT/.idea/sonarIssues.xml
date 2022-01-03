@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service-cadres-admin/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service-cadres-admin/src/main/java/org/sid/servicecadresadmin/dao/CadreAdminRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service-cadres-admin/src/main/resources/bootstrap.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service-config/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service-proxy/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service-proxy/src/main/java/sid/org/serviceproxy/ServiceProxyApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service-proxy/src/main/resources/application.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_enseignant/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_enseignant/src/main/java/org/sid/service_enseignant/configuration/CorsFilter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_enseignant/src/main/java/org/sid/service_enseignant/dao/EnseignantRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_enseignant/src/main/java/org/sid/service_enseignant/entities/Enseignant.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_enseignant/src/main/java/org/sid/service_enseignant/entities/EnseignantIdClass.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_enseignant/src/main/resources/bootstrap.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/src/main/java/org/sid/service_etudiant/dao/AbsenceRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/src/main/java/org/sid/service_etudiant/dao/ClassRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/src/main/java/org/sid/service_etudiant/dao/EtudiantRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/src/main/java/org/sid/service_etudiant/dao/MatiereRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/src/main/java/org/sid/service_etudiant/dao/SectionRepository.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/src/main/java/org/sid/service_etudiant/domain/Class.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/src/main/java/org/sid/service_etudiant/domain/Matiere.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/src/main/java/org/sid/service_etudiant/domain/Section.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/src/main/java/org/sid/service_etudiant/domain/Session.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../NOSQL-PROJECT-BACK/service_etudiant/src/main/resources/bootstrap.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SOA-PROJECT-BACK-master/Register/src/com/sid/Main.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SOA-PROJECT-BACK-master/Register/src/com/sid/ServiceRegisterApplication.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../SOA-PROJECT-BACK-master/service-cadres-admin/src/main/resources/bootstrap.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/demo/enseignant/enseignant.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/demo/enseignant/enseignant.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/demo/etudiant/etudiant.component.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/demo/etudiant/etudiant.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/demo/gestion-scolarite/section/section.component.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/demo/services/enseignant.service.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/demo/services/matiere.service.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/app/demo/services/section.service.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/environments/environment.ts">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/index.html">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

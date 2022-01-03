@@ -1,0 +1,180 @@
+<app-snackbar [type]="type" [message]="message" [show]="show"></app-snackbar>
+<div class="row">
+    <div class="col-sm-12">
+        <app-card cardTitle="Etudiant" [options]="false">
+            <div class="row">
+                <div >
+                    <h5 class="mt-3">Ajouter un Etudiant</h5>
+                    <form [formGroup]="etudiant" (ngSubmit)="onSubmit()"  >
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Etudiant</span>
+                            </div>
+                            <input formControlName="nom" name="nom" type="text" class="form-control" placeholder="Nom" aria-label="Recipient's username" aria-describedby="basic-addon2" (focus)="focus=true" (blur)="focus=false" required="required" [ngClass]="{'is-invalid': submitted && f.nom.errors }">
+                            <input formControlName="prenom" name="prenom" type="text" class="form-control" placeholder="Prenom" aria-label="Recipient's username" aria-describedby="basic-addon2" (focus)="focus=true" (blur)="focus=false" required="required" [ngClass]="{'is-invalid': submitted && f.prenom.errors }">
+                            <input formControlName="adresse" name="adresse" type="text" class="form-control" placeholder="Adresse" aria-label="Recipient's username" aria-describedby="basic-addon2" (focus)="focus=true" (blur)="focus=false" required="required" [ngClass]="{'is-invalid': submitted && f.adresse.errors }">
+                            <input formControlName="telephone" name="telephone" type="number" class="form-control" placeholder="Telephone" aria-label="Recipient's username" aria-describedby="basic-addon2" (focus)="focus=true" (blur)="focus=false" required="required" [ngClass]="{'is-invalid': submitted && f.telephone.errors }">
+
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Ajouter</button>
+                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Class</span>
+                            </div>
+                            <select formControlName="idClass"  class="custom-select form-control" id="inputGroupSelect04" (focus)="focus=true" (blur)="focus=false" required="required" [ngClass]="{'is-invalid': submitted && f.idClass.errors }">
+                                <option   value="" selected>Choose...</option>
+                                <option *ngFor="let cla of classes" value="{{cla.id}}">{{cla.nom_class}}</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Session</span>
+                            </div>
+                            <select formControlName="idSession"  class="custom-select form-control" id="inputGroupSelect05" (focus)="focus=true" (blur)="focus=false" required="required" [ngClass]="{'is-invalid': submitted && f.idSession.errors }">
+                                <option  value="" selected>Choose...</option>
+                                <option *ngFor="let sess of sessions" value="{{sess.id}}">{{sess.anneeScolaire}}</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </app-card>
+    </div>
+</div>
+<div>
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+    </mat-form-field>
+
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
+
+            <!-- ID Column -->
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+            </ng-container>
+
+            <!-- Progress Column -->
+            <ng-container matColumnDef="Nom">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Nom </th>
+                <td mat-cell *matCellDef="let row"> {{row.nom}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Prenom">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Prenom </th>
+                <td mat-cell *matCellDef="let row"> {{row.prenom}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Adresse">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Adresse </th>
+                <td mat-cell *matCellDef="let row"> {{row.adresse}}</td>
+            </ng-container>
+            <ng-container matColumnDef="Telephone">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Telephone </th>
+                <td mat-cell *matCellDef="let row"> {{row.telephone}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="Class">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Class </th>
+                <td mat-cell *matCellDef="let row">
+                    {{row.class}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="Session">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Session </th>
+                <td mat-cell *matCellDef="let row">
+                    {{row.session}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="Resultat">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Resultat </th>
+                <td mat-cell *matCellDef="let row">
+                    <select #result class="custom-select" (change)="resultChanged(result.value,row.id)" value="{{row.resultat}}">
+                        <option value="nonAffectee">Non Affectee</option>
+                        <option value="reussit">Reussit</option>
+                        <option value="redoublant">Redoublant</option>
+                    </select>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="Absence">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Absence </th>
+                <td mat-cell *matCellDef="let row">
+                    <!--<button (click)="absence(row.id)" class="btn btn-info">Absence</button>-->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" (click)="absence(row.id)">Absence</button>
+
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="Modifier">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Modifier </th>
+                <td mat-cell *matCellDef="let row">
+                    <button (click)="modifier(row.id)" class="btn btn-secondary">Modifier</button>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="Supprimer">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Supprimer </th>
+                <td mat-cell *matCellDef="let row">
+                    <button (click)="supprimer(row.id)" class="btn btn-danger">Supprimer</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <!-- Row shown when there is no matching data. -->
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            </tr>
+        </table>
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+
+</div>
+
+<app-ui-modal #absenceC dialogClass="modal-dialog-centered">
+    <div class="app-modal-header">
+        <h5 class="modal-title">Absence par matiere</h5>
+        <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="absenceHide()"><span aria-hidden="true">&times;</span></button>
+    </div>
+
+    <div class="app-modal-body">
+
+        <mat-form-field color="accent" appearance="fill">
+            <mat-label>Choisir une date</mat-label>
+            <input matInput (dateInput)="pickedDate($event.value)" [matDatepicker]="picker1">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+        <form  [formGroup]="matiereAbsence"  >
+            <table>
+                <th>Matieres</th>
+                <tr *ngFor="let mat of  etudiantMatieres; let i=index"  >
+                    <div *ngIf="matiereAbsence.controls[i]">
+                        <div  [formGroup]="matiereAbsence.controls[i]" >
+                            <td >
+                                <input disabled  name="matiere" class="form-control"  type="text"  formControlName="matiere" value="{{mat.matiere}}">
+
+                            </td>
+                            <td>
+                                <select class="form-control" formControlName="status"      class="custom-select form-control"  >
+                                    <option value="null">Pas de class a ce date</option>
+                                    <option value="present">Present</option>
+                                    <option value="absent">Absent</option>
+                                </select>
+                            </td>
+                        </div>
+                    </div>
+
+                </tr>
+            </table>
+        </form>
+    </div>
+    <div class="app-modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="absenceHide()">Close</button>
+        <button type="button" (click)="matiereAbsenceSubmit()" class="btn btn-primary">Save changes</button>
+    </div>
+
+
+</app-ui-modal>
